@@ -46,6 +46,7 @@ module flcl_dualview_mod
   
   public kokkos_allocate_dualview
   public kokkos_deallocate_dualview
+  public view_ptr
   public dualview_l_1d_t
   public dualview_i32_1d_t
   public dualview_i64_1d_t
@@ -84,261 +85,156 @@ module flcl_dualview_mod
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! 1D Kokkos DualView types
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  type dualview_l_1d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_l_1d_t
+  type, bind(c) :: dualview_l_1d_t
+    type(c_ptr) :: handle
   end type dualview_l_1d_t
 
-  type dualview_i32_1d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i32_1d_t
+  type, bind(c) :: dualview_i32_1d_t
+    type(c_ptr) :: handle
   end type dualview_i32_1d_t
 
-  type dualview_i64_1d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i64_1d_t
+  type, bind(c) :: dualview_i64_1d_t
+    type(c_ptr) :: handle
   end type dualview_i64_1d_t
 
-  type dualview_r32_1d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r32_1d_t
+  type, bind(c) :: dualview_r32_1d_t
+    type(c_ptr) :: handle
   end type dualview_r32_1d_t
 
-  type dualview_r64_1d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r64_1d_t
+  type, bind(c) :: dualview_r64_1d_t
+    type(c_ptr) :: handle
   end type dualview_r64_1d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! 2D Kokkos DualView types
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  type dualview_l_2d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_l_2d_t
+  type, bind(c) :: dualview_l_2d_t
+    type(c_ptr) :: handle
   end type dualview_l_2d_t
 
-  type dualview_i32_2d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i32_2d_t
+  type, bind(c) :: dualview_i32_2d_t
+    type(c_ptr) :: handle
   end type dualview_i32_2d_t
 
-  type dualview_i64_2d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i64_2d_t
+  type, bind(c) :: dualview_i64_2d_t
+    type(c_ptr) :: handle
   end type dualview_i64_2d_t
 
-  type dualview_r32_2d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r32_2d_t
+  type, bind(c) :: dualview_r32_2d_t
+    type(c_ptr) :: handle
   end type dualview_r32_2d_t
 
-  type dualview_r64_2d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r64_2d_t
+  type, bind(c) :: dualview_r64_2d_t
+    type(c_ptr) :: handle
   end type dualview_r64_2d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! 3D Kokkos DualView types
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  type dualview_l_3d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_l_3d_t
+  type, bind(c) :: dualview_l_3d_t
+    type(c_ptr) :: handle
   end type dualview_l_3d_t
 
-  type dualview_i32_3d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i32_3d_t
+  type, bind(c) :: dualview_i32_3d_t
+    type(c_ptr) :: handle
   end type dualview_i32_3d_t
 
-  type dualview_i64_3d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i64_3d_t
+  type, bind(c) :: dualview_i64_3d_t
+    type(c_ptr) :: handle
   end type dualview_i64_3d_t
 
-  type dualview_r32_3d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r32_3d_t
+  type, bind(c) :: dualview_r32_3d_t
+    type(c_ptr) :: handle
   end type dualview_r32_3d_t
 
-  type dualview_r64_3d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r64_3d_t
+  type, bind(c) :: dualview_r64_3d_t
+    type(c_ptr) :: handle
   end type dualview_r64_3d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! 4D Kokkos DualView types
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  type dualview_l_4d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_l_4d_t
+  type, bind(c) :: dualview_l_4d_t
+    type(c_ptr) :: handle
   end type dualview_l_4d_t
 
-  type dualview_i32_4d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i32_4d_t
+  type, bind(c) :: dualview_i32_4d_t
+    type(c_ptr) :: handle
   end type dualview_i32_4d_t
 
-  type dualview_i64_4d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i64_4d_t
+  type, bind(c) :: dualview_i64_4d_t
+    type(c_ptr) :: handle
   end type dualview_i64_4d_t
 
-  type dualview_r32_4d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r32_4d_t
+  type, bind(c) :: dualview_r32_4d_t
+    type(c_ptr) :: handle
   end type dualview_r32_4d_t
 
-  type dualview_r64_4d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r64_4d_t
+  type, bind(c) :: dualview_r64_4d_t
+    type(c_ptr) :: handle
   end type dualview_r64_4d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! 5D Kokkos DualView types
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  type dualview_l_5d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_l_5d_t
+  type, bind(c) :: dualview_l_5d_t
+    type(c_ptr) :: handle
   end type dualview_l_5d_t
 
-  type dualview_i32_5d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i32_5d_t
+  type, bind(c) :: dualview_i32_5d_t
+    type(c_ptr) :: handle
   end type dualview_i32_5d_t
 
-  type dualview_i64_5d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i64_5d_t
+  type, bind(c) :: dualview_i64_5d_t
+    type(c_ptr) :: handle
   end type dualview_i64_5d_t
 
-  type dualview_r32_5d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r32_5d_t
+  type, bind(c) :: dualview_r32_5d_t
+    type(c_ptr) :: handle
   end type dualview_r32_5d_t
 
-  type dualview_r64_5d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r64_5d_t
+  type, bind(c) :: dualview_r64_5d_t
+    type(c_ptr) :: handle
   end type dualview_r64_5d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! 6D Kokkos DualView types
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  type dualview_l_6d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_l_6d_t
+  type, bind(c) :: dualview_l_6d_t
+    type(c_ptr) :: handle
   end type dualview_l_6d_t
 
-  type dualview_i32_6d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i32_6d_t
+  type, bind(c) :: dualview_i32_6d_t
+    type(c_ptr) :: handle
   end type dualview_i32_6d_t
 
-  type dualview_i64_6d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i64_6d_t
+  type, bind(c) :: dualview_i64_6d_t
+    type(c_ptr) :: handle
   end type dualview_i64_6d_t
 
-  type dualview_r32_6d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r32_6d_t
+  type, bind(c) :: dualview_r32_6d_t
+    type(c_ptr) :: handle
   end type dualview_r32_6d_t
 
-  type dualview_r64_6d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r64_6d_t
+  type, bind(c) :: dualview_r64_6d_t
+    type(c_ptr) :: handle
   end type dualview_r64_6d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! 7D Kokkos DualView types
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  type dualview_l_7d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_l_7d_t
+  type, bind(c) :: dualview_l_7d_t
+    type(c_ptr) :: handle
   end type dualview_l_7d_t
 
-  type dualview_i32_7d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i32_7d_t
+  type, bind(c) :: dualview_i32_7d_t
+    type(c_ptr) :: handle
   end type dualview_i32_7d_t
 
-  type dualview_i64_7d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_i64_7d_t
+  type, bind(c) :: dualview_i64_7d_t
+    type(c_ptr) :: handle
   end type dualview_i64_7d_t
 
-  type dualview_r32_7d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r32_7d_t
+  type, bind(c) :: dualview_r32_7d_t
+    type(c_ptr) :: handle
   end type dualview_r32_7d_t
 
-  type dualview_r64_7d_t
-    private
-      type(c_ptr) :: handle
-    contains
-      procedure :: ptr => view_ptr_dualview_r64_7d_t
+  type, bind(c) :: dualview_r64_7d_t
+    type(c_ptr) :: handle
   end type dualview_r64_7d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! kokkos_allocate_dualview interface
@@ -446,6 +342,59 @@ module flcl_dualview_mod
     module procedure kokkos_deallocate_dv_r32_7d
     module procedure kokkos_deallocate_dv_r64_7d
   end interface kokkos_deallocate_dualview
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! view_ptr interface
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  interface view_ptr
+    ! 1D specializations
+    module procedure view_ptr_dualview_l_1d_t
+    module procedure view_ptr_dualview_i32_1d_t
+    module procedure view_ptr_dualview_i64_1d_t
+    module procedure view_ptr_dualview_r32_1d_t
+    module procedure view_ptr_dualview_r64_1d_t
+
+    ! 2D specializations
+    module procedure view_ptr_dualview_l_2d_t
+    module procedure view_ptr_dualview_i32_2d_t
+    module procedure view_ptr_dualview_i64_2d_t
+    module procedure view_ptr_dualview_r32_2d_t
+    module procedure view_ptr_dualview_r64_2d_t
+
+    ! 3D specializations
+    module procedure view_ptr_dualview_l_3d_t
+    module procedure view_ptr_dualview_i32_3d_t
+    module procedure view_ptr_dualview_i64_3d_t
+    module procedure view_ptr_dualview_r32_3d_t
+    module procedure view_ptr_dualview_r64_3d_t
+
+    ! 4D specializations
+    module procedure view_ptr_dualview_l_4d_t
+    module procedure view_ptr_dualview_i32_4d_t
+    module procedure view_ptr_dualview_i64_4d_t
+    module procedure view_ptr_dualview_r32_4d_t
+    module procedure view_ptr_dualview_r64_4d_t
+
+    ! 5D specializations
+    module procedure view_ptr_dualview_l_5d_t
+    module procedure view_ptr_dualview_i32_5d_t
+    module procedure view_ptr_dualview_i64_5d_t
+    module procedure view_ptr_dualview_r32_5d_t
+    module procedure view_ptr_dualview_r64_5d_t
+
+    ! 6D specializations
+    module procedure view_ptr_dualview_l_6d_t
+    module procedure view_ptr_dualview_i32_6d_t
+    module procedure view_ptr_dualview_i64_6d_t
+    module procedure view_ptr_dualview_r32_6d_t
+    module procedure view_ptr_dualview_r64_6d_t
+
+    ! 7D specializations
+    module procedure view_ptr_dualview_l_7d_t
+    module procedure view_ptr_dualview_i32_7d_t
+    module procedure view_ptr_dualview_i64_7d_t
+    module procedure view_ptr_dualview_r32_7d_t
+    module procedure view_ptr_dualview_r64_7d_t
+  end interface view_ptr
   interface 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! kokkos_allocate_dualview 1D interfaces
@@ -2159,189 +2108,189 @@ module flcl_dualview_mod
 !!! view_ptr_dualview 1d implementations
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   type(c_ptr) function view_ptr_dualview_l_1d_t( self ) result( result_ptr )
-    class( dualview_l_1d_t ), intent(in) :: self
+    type( dualview_l_1d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_l_1d_t
 
   type(c_ptr) function view_ptr_dualview_i32_1d_t( self ) result( result_ptr )
-    class( dualview_i32_1d_t ), intent(in) :: self
+    type( dualview_i32_1d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i32_1d_t
 
   type(c_ptr) function view_ptr_dualview_i64_1d_t( self ) result( result_ptr )
-    class( dualview_i64_1d_t ), intent(in) :: self
+    type( dualview_i64_1d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i64_1d_t
 
   type(c_ptr) function view_ptr_dualview_r32_1d_t( self ) result( result_ptr )
-    class( dualview_r32_1d_t ), intent(in) :: self
+    type( dualview_r32_1d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r32_1d_t
 
   type(c_ptr) function view_ptr_dualview_r64_1d_t( self ) result( result_ptr )
-    class( dualview_r64_1d_t ), intent(in) :: self
+    type( dualview_r64_1d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r64_1d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! view_ptr_dualview 2d implementations
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   type(c_ptr) function view_ptr_dualview_l_2d_t( self ) result( result_ptr )
-    class( dualview_l_2d_t ), intent(in) :: self
+    type( dualview_l_2d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_l_2d_t
 
   type(c_ptr) function view_ptr_dualview_i32_2d_t( self ) result( result_ptr )
-    class( dualview_i32_2d_t ), intent(in) :: self
+    type( dualview_i32_2d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i32_2d_t
 
   type(c_ptr) function view_ptr_dualview_i64_2d_t( self ) result( result_ptr )
-    class( dualview_i64_2d_t ), intent(in) :: self
+    type( dualview_i64_2d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i64_2d_t
 
   type(c_ptr) function view_ptr_dualview_r32_2d_t( self ) result( result_ptr )
-    class( dualview_r32_2d_t ), intent(in) :: self
+    type( dualview_r32_2d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r32_2d_t
 
   type(c_ptr) function view_ptr_dualview_r64_2d_t( self ) result( result_ptr )
-    class( dualview_r64_2d_t ), intent(in) :: self
+    type( dualview_r64_2d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r64_2d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! view_ptr_dualview 3d implementations
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   type(c_ptr) function view_ptr_dualview_l_3d_t( self ) result( result_ptr )
-    class( dualview_l_3d_t ), intent(in) :: self
+    type( dualview_l_3d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_l_3d_t
 
   type(c_ptr) function view_ptr_dualview_i32_3d_t( self ) result( result_ptr )
-    class( dualview_i32_3d_t ), intent(in) :: self
+    type( dualview_i32_3d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i32_3d_t
 
   type(c_ptr) function view_ptr_dualview_i64_3d_t( self ) result( result_ptr )
-    class( dualview_i64_3d_t ), intent(in) :: self
+    type( dualview_i64_3d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i64_3d_t
 
   type(c_ptr) function view_ptr_dualview_r32_3d_t( self ) result( result_ptr )
-    class( dualview_r32_3d_t ), intent(in) :: self
+    type( dualview_r32_3d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r32_3d_t
 
   type(c_ptr) function view_ptr_dualview_r64_3d_t( self ) result( result_ptr )
-    class( dualview_r64_3d_t ), intent(in) :: self
+    type( dualview_r64_3d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r64_3d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! view_ptr_dualview 4d implementations
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   type(c_ptr) function view_ptr_dualview_l_4d_t( self ) result( result_ptr )
-    class( dualview_l_4d_t ), intent(in) :: self
+    type( dualview_l_4d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_l_4d_t
 
   type(c_ptr) function view_ptr_dualview_i32_4d_t( self ) result( result_ptr )
-    class( dualview_i32_4d_t ), intent(in) :: self
+    type( dualview_i32_4d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i32_4d_t
 
   type(c_ptr) function view_ptr_dualview_i64_4d_t( self ) result( result_ptr )
-    class( dualview_i64_4d_t ), intent(in) :: self
+    type( dualview_i64_4d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i64_4d_t
 
   type(c_ptr) function view_ptr_dualview_r32_4d_t( self ) result( result_ptr )
-    class( dualview_r32_4d_t ), intent(in) :: self
+    type( dualview_r32_4d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r32_4d_t
 
   type(c_ptr) function view_ptr_dualview_r64_4d_t( self ) result( result_ptr )
-    class( dualview_r64_4d_t ), intent(in) :: self
+    type( dualview_r64_4d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r64_4d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! view_ptr_dualview 5d implementations
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   type(c_ptr) function view_ptr_dualview_l_5d_t( self ) result( result_ptr )
-    class( dualview_l_5d_t ), intent(in) :: self
+    type( dualview_l_5d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_l_5d_t
 
   type(c_ptr) function view_ptr_dualview_i32_5d_t( self ) result( result_ptr )
-    class( dualview_i32_5d_t ), intent(in) :: self
+    type( dualview_i32_5d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i32_5d_t
 
   type(c_ptr) function view_ptr_dualview_i64_5d_t( self ) result( result_ptr )
-    class( dualview_i64_5d_t ), intent(in) :: self
+    type( dualview_i64_5d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i64_5d_t
 
   type(c_ptr) function view_ptr_dualview_r32_5d_t( self ) result( result_ptr )
-    class( dualview_r32_5d_t ), intent(in) :: self
+    type( dualview_r32_5d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r32_5d_t
 
   type(c_ptr) function view_ptr_dualview_r64_5d_t( self ) result( result_ptr )
-    class( dualview_r64_5d_t ), intent(in) :: self
+    type( dualview_r64_5d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r64_5d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! view_ptr_dualview 6d implementations
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   type(c_ptr) function view_ptr_dualview_l_6d_t( self ) result( result_ptr )
-    class( dualview_l_6d_t ), intent(in) :: self
+    type( dualview_l_6d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_l_6d_t
 
   type(c_ptr) function view_ptr_dualview_i32_6d_t( self ) result( result_ptr )
-    class( dualview_i32_6d_t ), intent(in) :: self
+    type( dualview_i32_6d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i32_6d_t
 
   type(c_ptr) function view_ptr_dualview_i64_6d_t( self ) result( result_ptr )
-    class( dualview_i64_6d_t ), intent(in) :: self
+    type( dualview_i64_6d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i64_6d_t
 
   type(c_ptr) function view_ptr_dualview_r32_6d_t( self ) result( result_ptr )
-    class( dualview_r32_6d_t ), intent(in) :: self
+    type( dualview_r32_6d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r32_6d_t
 
   type(c_ptr) function view_ptr_dualview_r64_6d_t( self ) result( result_ptr )
-    class( dualview_r64_6d_t ), intent(in) :: self
+    type( dualview_r64_6d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r64_6d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! view_ptr_dualview 7d implementations
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   type(c_ptr) function view_ptr_dualview_l_7d_t( self ) result( result_ptr )
-    class( dualview_l_7d_t ), intent(in) :: self
+    type( dualview_l_7d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_l_7d_t
 
   type(c_ptr) function view_ptr_dualview_i32_7d_t( self ) result( result_ptr )
-    class( dualview_i32_7d_t ), intent(in) :: self
+    type( dualview_i32_7d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i32_7d_t
 
   type(c_ptr) function view_ptr_dualview_i64_7d_t( self ) result( result_ptr )
-    class( dualview_i64_7d_t ), intent(in) :: self
+    type( dualview_i64_7d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_i64_7d_t
 
   type(c_ptr) function view_ptr_dualview_r32_7d_t( self ) result( result_ptr )
-    class( dualview_r32_7d_t ), intent(in) :: self
+    type( dualview_r32_7d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r32_7d_t
 
   type(c_ptr) function view_ptr_dualview_r64_7d_t( self ) result( result_ptr )
-    class( dualview_r64_7d_t ), intent(in) :: self
+    type( dualview_r64_7d_t ), intent(in) :: self
     result_ptr = self%handle
   end function view_ptr_dualview_r64_7d_t
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

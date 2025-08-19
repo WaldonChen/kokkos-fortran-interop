@@ -63,7 +63,7 @@ module axpy_f_mod
           type(view_r64_1d_t), intent(in) :: x
           real(c_double), intent(in) :: alpha
 
-          call f_axpy_view(y%ptr(), x%ptr(), alpha)
+          call f_axpy_view(view_ptr(y), view_ptr(x), alpha)
 
         end subroutine axpy_view
   

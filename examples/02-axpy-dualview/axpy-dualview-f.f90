@@ -63,7 +63,7 @@ module axpy_f_mod
           type(dualview_r64_1d_t), intent(in) :: x
           real(c_double), intent(in) :: alpha
 
-          call f_axpy_dualview(y%ptr(), x%ptr(), alpha)
+          call f_axpy_dualview(view_ptr(y), view_ptr(x), alpha)
 
         end subroutine axpy_dualview
   
